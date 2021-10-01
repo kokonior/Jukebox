@@ -71,3 +71,67 @@ $ docker-compose up
 - Configurable
 - Docker-friendly
 - Lightweight (only around 120MB with dev dependencies pruned)
+
+## Penggunaan
+
+**[⚠] Membutuhkan [Node.JS](https://nodejs.org) versi 16.6.0 atau lebih tinggi.**
+
+1. Instal [Node.JS](https://nodejs.org)
+2. Persyaratan instal untuk yt-dlp
+
+   Untuk sistem mirip Linux/Mac OS/Unix, instal [Python 3](https://www.python.org/downloads/), dan tambahkan ke variabel lingkungan PATH
+
+   Untuk Windows, Anda tidak perlu menginstal Python, tetapi Anda perlu menginstal [Microsoft Visual C++ 2010 Service Pack 1 Redistributable Package (x86)](https://download.microsoft.com/download/1/6/5/ 165255E7-1014-4D0A-B094-B6A430A6BFFC/vcredist_x86.exe)
+
+3. Ganti nama `.env.schema` menjadi `.env` dan isi nilainya (contoh pada .env.example)
+4. Instal dependensi seperti yang dinyatakan [di sini](https://github.com/Hazmi35/jukebox#install)
+5. Jalankan `npm run build`
+6. (Opsional) Pangkas dependensi dev (Ini bagus untuk menghemat ruang disk):
+```sh
+$npm memangkas --produksi
+```
+1. Mulai dengan `npm start`. Dan Anda sudah selesai!
+
+Catatan:
+1. Anda hanya perlu mengonfigurasi file .env saat menggunakan [gambar Docker](https://github.com/Hazmi35/jukebox#Docker)
+2. Jika Anda menggunakan tombol "Deploy to Heroku", Anda tidak perlu melakukan ini.
+
+## Install
+
+Tanpa paket opsional
+```sh
+$npm install --no-opsional
+```
+
+Dengan paket opsional (Disarankan)
+
+```sh
+$npm instal
+```
+Untuk paket opsional, Anda perlu menginstal alat build seperti yang dinyatakan [di sini](https://github.com/nodejs/node-gyp#installation) dan Anda juga perlu menginstal [Git](https://git-scm. com/)
+
+## buruh pelabuhan
+Ingin menggunakan jukebox versi Dockerized? Tentu! kami menyediakannya di [Docker Hub](https://hub.docker.com/r/hazmi35/jukebox) dan juga di [GitHub Container Registry](https://github.com/users/Hazmi35/packages/container /paket/jukebox)
+
+### Volume
+[Volume Docker](https://docs.docker.com/storage/volumes/) diperlukan untuk menyimpan cache dan log secara terus-menerus
+
+### Contoh:
+```sh
+$ docker run --env-file .env --volume cache:/app/cache --volume logs:/app/logs --restart kecuali hazmi35/jukebox dihentikan
+```
+Kami juga menyediakan [docker-compose.yml](docker-compose.yml) jika Anda ingin melakukannya
+
+### Tulis Contoh
+```sh
+$ komposisi buruh pelabuhan
+```
+
+## Fitur
+- Bot musik siap produksi, cocok untuk Anda yang tidak suka mengganggu kode.
+- Perintah Dasar (Bantuan, Ping, Undang & Evaluasi [untuk pemilik bot tingkat lanjut])
+- Perintah Musik Dasar (Play, Skip, Stop, Pause & Resume, Now Playing, Queue, Repeat, Volume)
+- Caching! (cache unduhan youtube)
+- Dapat dikonfigurasi
+- Ramah buruh pelabuhan
+- Ringan (hanya sekitar 120MB dengan dependensi dev dipangkas)
